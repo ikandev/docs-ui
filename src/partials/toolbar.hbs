@@ -1,0 +1,17 @@
+<div class="toolbar" role="navigation">
+{{> nav-toggle}}
+  {{#with site.homeUrl}}
+  <a href="{{{relativize this}}}" class="home-link{{#if @root.page.home}} is-current{{/if}}"></a>
+  {{/with}}
+{{> breadcrumbs}}
+{{#if page.component}}
+	{{#if (ends-with page.component.name '-en')}}
+		<a href="{{{relativize (check-alt-language page.component.name page.version page.url 'fr')}}}"><div class="navbar-item-country-suffix-fr"> Version fran&ccedil;aise</div></a>
+	{{/if}}
+	{{#if (ends-with page.component.name '-fr')}}
+		<a href="{{{relativize (check-alt-language page.component.name page.version page.url 'en')}}}"><div class="navbar-item-country-suffix-uk"> English version</div></a>
+	{{/if}}	
+{{/if}} 
+{{> page-versions}}
+	<span id="js-toolbar-pdf-doc" class="toolbar-pdf-doc"></span>
+</div>

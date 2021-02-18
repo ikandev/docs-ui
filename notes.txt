@@ -1,0 +1,7 @@
+Sources to build the UI from are located in the "src" folder.
+
+Use 'gulp bundle' command in the 'docs-ui' root to build the UI bundle. The build result will be located at 'docs-ui/buid/ui-bundle.zip'.
+
+The UI is used during the Antora site generation to build the front-end.
+
+Some partials will be overridden by the suplemental-ui folder (used to implement the search functionality) in the "docs-site" folder. When making changes to the original partials, also add them to the supplemental-ui partial files, if they have the same filename.

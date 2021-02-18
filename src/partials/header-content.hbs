@@ -1,0 +1,58 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}"><img src="{{{uiRootPath}}}/img/logo.svg" alt="IKAN ALM"><span class="navbar-logo-text">&nbsp;&nbsp;Documentation</span></a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        {{#if page.component}}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link navbar-link-category" href="#">General</a>
+          <div class="navbar-dropdown is-right">
+            {{#each site.components}}
+              {{#unless (or (starts-with ./name 'how-to-') (starts-with ./name 'integration-'))}}
+                {{#unless (ends-with ./name '-fr')}}
+                  <a class="navbar-item" href="{{{relativize ./url}}}">{{{./title}}}</a>
+                {{/unless}}
+              {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link navbar-link-category" href="#">How to's</a>
+          <div class="navbar-dropdown is-right">
+            {{#each site.components}}
+              {{#if (starts-with ./name 'how-to-')}}
+                {{#unless (ends-with ./name '-fr')}}
+                  <a class="navbar-item" href="{{{relativize ./url}}}">{{{./title}}}</a>
+                {{/unless}}
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link navbar-link-category" href="#">Integrations</a>
+          <div class="navbar-dropdown is-right">
+            {{#each site.components}}
+              {{#if (starts-with ./name 'integration-')}}
+                {{#unless (ends-with ./name '-fr')}}
+                  <a class="navbar-item" href="{{{relativize ./url}}}">{{{./title}}}</a>
+                {{/unless}}
+              {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}        
+
+      </div>
+    </div>
+  </nav>
+</header>
