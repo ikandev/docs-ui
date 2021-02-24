@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   if (linkUrl !== '') {
     // Remove first and last part of url and split in document name and version    
     linkUrl = linkUrl.replace(/http[s]*:\/\/[a-zA-Z]*\.[a-zA-Z]*\.[a-zA-Z]*\//gm, '');
-    linkUrl = linkUrl.replace(/\/[a-zA-Z]*.html/gm, '');
+    linkUrl = linkUrl.replace(/\/[a-zA-Z_]*.html/gm, '');
     linkUrl = linkUrl.replace('/', '_') + '.pdf';
 
     // Ajax call
